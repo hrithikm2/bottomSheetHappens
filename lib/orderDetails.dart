@@ -50,6 +50,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     Container(
+                        padding: EdgeInsets.only(left:10,right:10),
                       width: double.infinity,
                       color: Colors.black.withOpacity(0.2),
                       child: Column(
@@ -86,6 +87,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     Container(
+                        padding: EdgeInsets.only(left:10,right:10),
                         width: double.infinity,
                         color: Colors.black.withOpacity(0.2),
                         child: Column(
