@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class OrderDetails extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class _OrderDetailsState extends State<OrderDetails> {
  String _itemPrice = 'Rs 100';
   @override
   Widget build(BuildContext context) {
+    bool switchState = false;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -211,6 +214,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     Container(
+                      padding: EdgeInsets.only(left:10,right:10),
                         width: double.infinity,
                         color: Colors.black.withOpacity(0.2),
                         child: Column(
@@ -234,21 +238,28 @@ class _OrderDetailsState extends State<OrderDetails> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text('Rs 0.0',style: TextStyle(
-                                    color: Colors.white,
-                                )),
+                                Expanded(
+                                  flex: 2,
+                                  child: Text('Rs 0.0',style: TextStyle(
+                                      color: Colors.white,
+                                  )),
+                                ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text('Use?',style: TextStyle(
                                       color: Colors.white,
                                     )),
-                                    Radio(
-                                      focusColor: Colors.white,
-                                      value: 'value',
-                                      toggleable: true,
-                                    )
                                   ],
+                                ),
+                                Switch(
+                                  value: switchState,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      switchState = value;
+                                    });
+                                    print(value);
+                                  },
                                 ),
                               ],
                             ),
