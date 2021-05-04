@@ -96,25 +96,49 @@ class _TestBottomSheetState extends State<TestBottomSheet> {
                       itemBuilder: (context, index) {
                         return Column(
                           children: [
-                            ListTile(
+                            GestureDetector(
                               onTap: () {
                                 _address = addressList[index];
                                 Navigator.pop(context);
                               },
-                              leading: Image.network(
-                                  'https://www.designindaba.com/sites/default/files/styles/scaledlarge/public/node/news/23566/sonic-burger.jpg?itok=zGk5pjcI'),
-                              title: Text(
-                                addressLeadingList[index],
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              subtitle: Text(
-                                addressList[index],
-                                style: TextStyle(color: Colors.grey),
+                              child: Container(
+                                padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
+                                child: Card(
+                                  color: Colors.transparent,
+                                  child:  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Image.network(
+                                          'https://www.designindaba.com/sites/default/files/styles/scaledlarge/public/node/news/23566/sonic-burger.jpg?itok=zGk5pjcI',scale: 10),
+                                      SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment : CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                                            Text(
+                                              addressLeadingList[index],
+                                              style: TextStyle(color: Colors.white,
+                                              fontSize: 18),
+                                            ),
+                                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                                            Text(
+                                              addressList[index],
+                                              style: TextStyle(color: Colors.grey),
+                                            ),
+                                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                                          ],
+                                        ),
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                             SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.05),
+                                    MediaQuery.of(context).size.height * 0.03),
                           ],
                         );
                       }),
