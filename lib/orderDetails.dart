@@ -243,6 +243,11 @@ class _OrderDetailsState extends State<OrderDetails> {
                                     Text('Use?',style: TextStyle(
                                       color: Colors.white,
                                     )),
+                                    Radio(
+                                      focusColor: Colors.white,
+                                      value: 'value',
+                                      toggleable: true,
+                                    )
                                   ],
                                 ),
                               ],
